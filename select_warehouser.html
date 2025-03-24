@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Department Warehousers</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Select Department Warehousers</h2>
+
+    <form method="POST">
+        <label for="student_id">Select Student:</label>
+        <select name="student_id" required>
+            {% for student in students %}
+                <option value="{{ student['admission_number'] }}">{{ student['name'] }} - {{ student['class'] }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="role">Select Role:</label>
+        <select name="role" required>
+            <option value="Secretary">Secretary</option>
+            <option value="Treasurer">Treasurer</option>
+            <option value="Joint Secretary">Joint Secretary</option>
+            <option value="Arts Club Secretary">Arts Club Secretary</option>
+            <option value="Sports Captain">Sports Captain</option>
+            <option value="Class Rep">Class Rep</option>
+        </select>
+
+        <button type="submit">Assign Role</button>
+    </form>
+
+    <h3>Assigned Warehousers</h3>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Class</th>
+            <th>Role</th>
+        </tr>
+        {% for wh in warehousers %}
+        <tr>
+            <td>{{ wh['name'] }}</td>
+            <td>{{ wh['class'] }}</td>
+            <td>{{ wh['role'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

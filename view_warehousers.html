@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Department Warehousers</title>
+</head>
+<body>
+    <h2>Department Warehousers</h2>
+    <table border="1">
+        <tr>
+            <th>Role</th>
+            <th>Name</th>
+            <th>Class</th>
+        </tr>
+        {% for warehouser in warehousers %}
+        <tr>
+            <td>{{ warehouser.role }}</td>
+            <td>{{ warehouser.name }}</td>
+            <td>{{ warehouser.class }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
